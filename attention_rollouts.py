@@ -96,7 +96,7 @@ def main(args):
 
     # Debug check
     if len(full_prompt.split()) < 2:
-        print("[⚠️ Warning] Prompt too short:", repr(full_prompt))
+        print("Prompt too short:", repr(full_prompt))
 
     input_ids = tokenizer_image_token(full_prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors='pt')
     if input_ids is None or input_ids.shape[-1] <= 1:
@@ -149,7 +149,7 @@ def main(args):
             visualize_rollout(rollout, image, image_token_count, output_token_idx, save_path)
 
         create_gif_from_images(output_dir, os.path.join(output_dir, "rollout.gif"))
-        print(f"[✓] Saved attention rollout gif to {os.path.join(output_dir, 'rollout.gif')}")
+        print(f"✓ Saved attention rollout gif to {os.path.join(output_dir, 'rollout.gif')}")
 
 
 if __name__ == "__main__":
